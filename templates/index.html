@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="text-center">
+  <h1 class="display-6">🔐 Image Text Steganography</h1>
+  <p class="lead">Embed secret text into an image (LSB) — optional AES encryption.</p>
+  <a class="btn btn-primary me-2" href="{{ url_for('embed') }}">Embed Text</a>
+  <a class="btn btn-success" href="{{ url_for('extract') }}">Extract Text</a>
+</div>
+{% endblock %}

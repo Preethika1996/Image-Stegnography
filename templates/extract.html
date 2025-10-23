@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Extract Text from Stego Image</h2>
+<form method="post" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label class="form-label">Stego Image</label>
+    <input class="form-control" type="file" name="image" accept="image/*" required>
+  </div>
+  <div class="mb-3 form-check">
+    <input class="form-check-input" type="checkbox" name="use_aes" id="use_aes_extract">
+    <label class="form-check-label" for="use_aes_extract">Payload was AES-encrypted</label>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Password (if AES)</label>
+    <input class="form-control" type="password" name="password" placeholder="Password if you used AES">
+  </div>
+  <button class="btn btn-success">Extract</button>
+  <a class="btn btn-secondary" href="{{ url_for('index') }}">Back</a>
+</form>
+
+{% if extracted_text %}
+<hr>
+<h5>Extracted Text</h5>
+<textarea class="form-control" rows="6" readonly>{{ extracted_text }}</textarea>
+{% endif %}
+{% endblock %}
